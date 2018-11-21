@@ -35,7 +35,24 @@ firebase.auth().signInWithPopup(provider).then(async function(result) {
   console.log(token);
   var user = result.user;
   //await setTokenIfNotEmpty(token);
-  await relocate();
+  var email_label = document.getElementById("email");
+  var email_feedback = document.getElementById("email_feedback");
+  var email_content = email_label.value;
+  
+  if(user.email != email_content){
+	email_label.classList.add("is-invalid");
+	email_feedback.style.display = "inline";
+	firebase.auth().signOut().then(function() {
+		console.log('User does not match with google auth , given email : ' + email_content + ' , google auth email ' + user.email + ' => signing out');
+		var string = 'Given email : ' + email_content + '\n  Google auth email : ' + user.email + ' .Please sign out from the google account of your browser and try again';
+		document.getElementById("google").innerHTML = string;
+		jQuery('#user-not-match').modal('show'); 
+	}, function(error) {
+		console.error('Sign Out Error', error);
+		});
+  }else{
+	await relocate();	 
+  }
   
 }).catch(function(error) {
 	

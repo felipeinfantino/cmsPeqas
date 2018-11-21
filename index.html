@@ -61,7 +61,7 @@
 							  <label for="email">Email address</label>
 							  <input type="text" class="form-control" id="email" placeholder="Email" required>
 							  <div class="invalid-feedback" style="display: none" id="email_feedback">
-								User not found. Please contact peqas.
+								User not found or email does not match with the google authentification. Please contact peqas.
 							  </div>
 							  <br><br>
 							 <button type="submit" id="signIn" class="btn btn-success btn-flat m-b-30 m-t-30" onclick="authenticate()">Sign in</button>
@@ -72,6 +72,27 @@
             </div>
         </div>
     </div>
+	
+	<!-- Modal -->
+	  <div class="modal fade" id="user-not-match" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">x</button>   
+        </div>
+        <div class="modal-body">
+          <h4>Given email does not match the Google account</h4>
+		  <p id="google"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal-->
+	
 
 	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script> 
 <script>

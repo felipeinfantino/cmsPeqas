@@ -6,8 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>VR Now</title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <title>CMS Peqas</title>
+    <meta name="description" content="CMS Peqas">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -34,42 +34,43 @@
 
 <body id="bod" style="display: none">
 
-    <!-- Left Panel -->
+   <!-- Left Panel -->
 
-    <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
+   <aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
 
-            <div class="navbar-header">
-                <button class="navbar-toggler" type="button" onclick="hide_image();" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-				<!-- <img src="logo.webp" width="120" height="120" alt="Logo" > -->
-				<!-- <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> -->
-				<br><br>
-            </div>
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" onclick="" data-toggle="collapse" data-target="#main-menu"
+                aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <!-- <img src="logo.webp" width="120" height="120" alt="Logo" > -->
+            <!-- <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> -->
+            <br><br>
+        </div>
 
-            <div id="main-menu" class="main-collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="home.html"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
-                    </li>
-                    <h3 class="menu-title">Manage Content</h3><!-- /.menu-title -->
-               
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Content</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="forms-advanced.html">Content Table</a></li>
-							<li><i class="fa fa-table"></i><a href="uploadContent.html">Upload CSV and Images</a></li>
-                        </ul>
-                    </li>
-					<li>
-                        <a href="" onclick="logOut()"> <i class="menu-icon fa fa-sign-in"></i>Logout</a>
-                    </li>
-                   
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside><!-- /#left-panel -->
+        <div id="main-menu" class="main-collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="home.html"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                </li>
+                <h3 class="menu-title">Manage Content</h3><!-- /.menu-title -->
+
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon fa fa-table"></i>Content</a>
+                    <ul class="sub-menu children dropdown-menu" >
+                        <li><i class="fa fa-table"></i><a href="contentTable.html">Content Table</a></li>
+                        <li><i class="fa fa-table"></i><a href="uploadContent.html">Upload CSV and Images</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" onclick="logOut()"> <i class="menu-icon fa fa-sign-in"></i>Logout</a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside><!-- /#left-panel -->
 
     <!-- Right Panel -->
 
@@ -107,7 +108,7 @@
      <div class="drop-area" id="drop-area-csv">
 		<form class="my-form">
     <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
-    <input type="file" class="fileElem" id="fileElem" multiple accept=".csv" onchange="handleCSVDropFromHtml(this.files)">
+    <input type="file" class="fileElem" id="fileElem" accept=".csv" onchange="handleCSVDropFromHtml(this.files)">
     <label class="button" for="fileElem">Select some files</label>
   </form>
 </div>
@@ -144,6 +145,7 @@
         </div>
         <div class="modal-body">
           <h4>Error while uploading images, try again. If the error persist contact peqas</h4>
+		  <p id="errorImages"><p>		  
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -180,6 +182,7 @@
         </div>
         <div class="modal-body">
           <h4>Error while uploading CSV, try again. If the error persist contact peqas</h4>
+		  <p id="errorFiles"><p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -188,6 +191,44 @@
     </div>
   </div>
   <!-- End modal-->
+  <!-- Modal -->
+	  <div class="modal fade" id="justOneFile" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">x</button>   
+        </div>
+        <div class="modal-body">
+          <h4>Please only one CSV at a time.</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal-->
+   <!-- Modal -->
+	  <div class="modal fade" id="contentUpload" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">x</button>   
+        </div>
+        <div class="modal-body">
+          <h4>Content is beeing uploaded, please wait a moment.</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal-->
+  
+  
 	
 	
     <!-- Right Panel -->

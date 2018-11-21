@@ -81,11 +81,10 @@ dropAreaImg.addEventListener('drop', handleImgDrop, false)
 
 
 function handleCSVDrop(e){
-  
   let dt = e.dataTransfer
   let files = dt.files
   if(files.length > 1){
-	alert("Please only one CSV file");
+	jQuery('#justOneFile').modal('show'); 
 	return;
   }
   parseCSV(files[0])
@@ -94,7 +93,7 @@ function handleCSVDrop(e){
 
 function handleCSVDropFromHtml(files){
 if(files.length > 1){
-	alert("Please only one CSV file");
+	jQuery('#justOneFile').modal('show');
 	return;
   }
   parseCSV(files[0])
@@ -102,6 +101,7 @@ if(files.length > 1){
 }
 
 function parseCSV(file){
+	jQuery('#contentUpload').modal('show'); 
 	Papa.parse(file, {
 				header: true,
 				dynamicTyping: true,
@@ -112,11 +112,10 @@ function parseCSV(file){
 }
 
 //TODO upload to firebase
-function uploadResultsToFirebase(results){
-	
+async function uploadResultsToFirebase(results){
 	console.log(results);
 	var data = results["data"];
-	//var succ = true;
+	var failedFiles = [];
 	for(var i = 0; i < data.length; i++){
 		console.log("iteration , length" +data.length );
 		//Hier Galerie soll dynamisch sein und auch kunstwerk
@@ -140,29 +139,58 @@ function uploadResultsToFirebase(results){
 		console.log(data[i])
 		
 		//succ setzen 
-		db.collection("user").doc("galerie").collection("kunstwerk").doc(str).set(data[i])
+		var succ = await db.collection("user").doc("galerie").collection("kunstwerk").doc(str).set(data[i])
 			.then(function() {
 				console.log("Document successfully writtennnn!");
+				return true;
 			})
 			.catch(function(error) {
 				console.error("Error writing document: ", error);
+				return false;
 			});
-
+			
+		if(!succ){
+			failedFiles.push(data[i]["Title"]); 
+		}
 	}
-	/*
-	if(succ){
+	
+	jQuery('#contentUpload').modal('hide'); 
+	if(failedFiles.length == 0){
 		jQuery('#suc-csv').modal('show'); 
 	}else{
-		jQuery('#err-csv').modal('show'); 
+		var allFilesAsString = "Error in Images : \n";
+		for(var i = 0; i < failedFiles.length; i++){
+			allFilesAsString = allFilesAsString + failedFiles[i] + "\n";
+		}
+		document.getElementById("errorFiles").innerHTML = allFilesAsString;
+		jQuery('#err-csv').modal('show');
 	}
-	*/
-	
 	document.getElementById('fileElem').value = '';
 	
 }
 
 
-
+async function handleFiles(files){
+	jQuery('#contentUpload').modal('show'); 
+	var failedImages = []
+	for(var i = 0; i < files.length; i++){
+	  var succ = await uploadImg(files[i]);
+	  if(!succ){
+		  failedImages.push(files[i].name)
+	  }
+	}
+	jQuery('#contentUpload').modal('hide');
+	if(failedImages.length == 0){
+		jQuery('#suc-img').modal('show'); 
+	}else{
+		var allFilesAsString = "Error in Images : \n";
+		for(var i = 0; i < failedImages.length; i++){
+			allFilesAsString = allFilesAsString + failedImages[i] + "\n";
+		}
+		document.getElementById("errorImages").innerHTML = allFilesAsString;
+		jQuery('#err-img').modal('show');
+	}
+}
 
 
 
@@ -170,27 +198,25 @@ function handleImgDrop(e) {
 
   let dt = e.dataTransfer
   let files = dt.files
-  
-  for(var i = 0; i < files.length; i++){
-	  //alert(files[i].name)
-	  uploadImg(files[i]);
-  }
+  handleFiles(files);
   
 }
 
-function uploadImg(file){
+async function uploadImg(file){
 
 // Create a root reference
 var storageRef = firebase.storage().ref();
 
 var uploadImgRef = storageRef.child('Galerien/berlinischegalerie_id/uploadedImgs/'+ file.name);
 
-uploadImgRef.put(file).then(function(snapshot) {
-  alert('Uploaded a blob or file!' + file.name);
+var result = uploadImgRef.put(file).then(function(snapshot) {
+	return true;
 }).catch(function(error) {
 				console.error("Error writing document: ", error);
+				return false;
 			});
-	
+
+return result;
 }
 
 async function fillInitialInfo(email_content){

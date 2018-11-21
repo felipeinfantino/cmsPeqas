@@ -1,0 +1,135 @@
+<!doctype html>
+
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VR Now</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- größe von title
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    -->
+   
+  
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+ 
+ <!-- 
+	  <script src="raydreams.js"></script>
+    <script src="data.js"></script>
+	<script src="test.js"></script>
+	<style type="text/css">
+		#dataTable table tr:hover td { background-color: palegoldenrod;	border-spacing: 30px; border-collapse: separate; }
+	</style>
+	-->
+	
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="raydreams.js"></script>
+    <script src="data.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+   <script src="test.js"></script>
+
+	<style type="text/css">
+		#dataTable table tr:hover td { background-color: palegoldenrod;	border-spacing: 30px; border-collapse: separate; }
+	</style>
+	
+	
+	
+
+</head>
+
+<body>
+
+    <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" onclick="hide_image();" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+				<!-- <img src="logo.webp" width="120" height="120" alt="Logo" > -->
+				<!-- <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> -->
+				<br><br>
+            </div>
+
+            <div id="main-menu" class="main-collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="home.html"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                    </li>
+                    <h3 class="menu-title">Manage Content</h3><!-- /.menu-title -->
+               
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Content</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="forms-advanced.html">Content Table</a></li>
+							<li><i class="fa fa-table"></i><a href="uploadContent.html">Upload CSV and Images</a></li>
+                        </ul>
+                    </li>
+                   
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside><!-- /#left-panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header">
+
+            <div class="header-menu">
+			 <div class="col-sm-5">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+			</div>
+            </div>
+			<h2 style="text-align:left">Berlinische Galerie</h2>
+
+        </header><!-- /header -->
+        <!-- Header-->
+        <div class="content mt-3">
+
+            <div class="container-fluid">
+				<div class="row">
+        <div class="col-xs-12" id="todays-table">
+			<div id="dataTable" class="table table-striped table-bordered" cellspacing="10" width="100%"></div>
+		</div>
+	</div>
+</div>
+			
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+	
+	
+    <!-- Right Panel -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    
+	<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

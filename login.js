@@ -1,4 +1,16 @@
 
+var input = document.getElementById("email");
+
+input.addEventListener("keyup", function(event) {
+  event.preventDefault();
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Trigger the button element with a click
+    document.getElementById("signIn").click();
+  }
+});
+
+
 async function authenticate(){
 		
 var email_label = document.getElementById("email");
@@ -51,5 +63,25 @@ async function check_for_user(email_content){
 	});
 	return user;
 }
+
+
+/*
+For now id is email
+
+async setTokenIfNotEmpty(token){
+
+	var ref = firebase.firestore().collection("users_ids");
+	await ref.where('email', '==', email_content).get().then((snapshot) => {
+		//There should be only one user 
+		snapshot.docs[0].update({
+				id: token
+			});
+			
+		console.log("id succesful changed");
+	});
+
+}
+*/
+
 
 

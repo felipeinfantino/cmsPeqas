@@ -1,105 +1,111 @@
-[debug] [2018-11-16T11:53:13.508Z] ----------------------------------------------------------------------
-[debug] [2018-11-16T11:53:13.508Z] Command:       C:\Users\felip\React\node.exe C:\Users\felip\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
-[debug] [2018-11-16T11:53:13.508Z] CLI Version:   6.0.1
-[debug] [2018-11-16T11:53:13.508Z] Platform:      win32
-[debug] [2018-11-16T11:53:13.508Z] Node Version:  v8.12.0
-[debug] [2018-11-16T11:53:13.508Z] Time:          Fri Nov 16 2018 12:53:13 GMT+0100 (Mitteleuropäische Zeit)
-[debug] [2018-11-16T11:53:13.508Z] ----------------------------------------------------------------------
+[debug] [2018-11-17T13:31:05.310Z] ----------------------------------------------------------------------
+[debug] [2018-11-17T13:31:05.310Z] Command:       C:\Users\felip\React\node.exe C:\Users\felip\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2018-11-17T13:31:05.310Z] CLI Version:   6.0.1
+[debug] [2018-11-17T13:31:05.310Z] Platform:      win32
+[debug] [2018-11-17T13:31:05.310Z] Node Version:  v8.12.0
+[debug] [2018-11-17T13:31:05.310Z] Time:          Sat Nov 17 2018 14:31:05 GMT+0100 (Mitteleuropäische Zeit)
+[debug] [2018-11-17T13:31:05.310Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-11-16T11:53:13.602Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-11-16T11:53:13.602Z] > authorizing via signed-in user
-[debug] [2018-11-16T11:53:13.602Z] [iam] checking project cmspeqas for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
-[debug] [2018-11-16T11:53:13.602Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/cmspeqas:testIamPermissions  
+[debug] [2018-11-17T13:31:05.513Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-17T13:31:05.513Z] > authorizing via signed-in user
+[debug] [2018-11-17T13:31:05.513Z] [iam] checking project cmspeqas for permissions ["firebase.projects.get"]
+[debug] [2018-11-17T13:31:05.513Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-11-17T13:31:05.513Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-11-17T13:31:05.794Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-17T13:31:05.872Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/cmspeqas:testIamPermissions  
 
-[debug] [2018-11-16T11:53:14.501Z] <<< HTTP RESPONSE 200
-[debug] [2018-11-16T11:53:14.501Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/cmspeqas  
+[debug] [2018-11-17T13:31:06.765Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-17T13:31:06.765Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/cmspeqas  
  
-[debug] [2018-11-16T11:53:14.833Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-17T13:31:07.590Z] <<< HTTP RESPONSE 200
 [info] 
-[info] === Deploying to 'cmspeqas'...
+[info] === Serving from 'C:\Users\felip\Desktop\CMS'...
 [info] 
-[info] i  deploying database, storage, firestore, functions, hosting
-[info] Running command: npm --prefix "%RESOURCE_DIR%" run lint
-[info] Running command: npm --prefix "%RESOURCE_DIR%" run build
-[info] +  functions: Finished running predeploy script.
-[info] i  database: checking rules syntax...
-[debug] [2018-11-16T11:54:26.666Z] >>> HTTP REQUEST PUT https://cmspeqas.firebaseio.com/.settings/rules.json?dryRun=true  
- {
-  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
-  "rules": {
-    ".read": false,
-    ".write": false
-  }
-}
-[debug] [2018-11-16T11:54:27.330Z] <<< HTTP RESPONSE 200
-[info] +  database: rules syntax for database cmspeqas is valid
-[debug] [2018-11-16T11:54:27.339Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/cmspeqas  
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-11-17T13:31:28.538Z] Fetching environment
+[debug] [2018-11-17T13:31:28.546Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/96652663583:getServerAppConfig  
  
-[debug] [2018-11-16T11:54:28.266Z] <<< HTTP RESPONSE 200
-[info] i  storage: checking storage.rules for compilation errors...
-[debug] [2018-11-16T11:54:28.298Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/cmspeqas:test  
+[debug] [2018-11-17T13:31:28.547Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/96652663583/clients/_:getWebAppConfig  
+ 
+[debug] [2018-11-17T13:31:28.851Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-17T13:31:28.852Z] Starting @google-cloud/functions-emulator
+[debug] [2018-11-17T13:31:28.972Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2018-11-17T13:31:39.512Z] Parsing function triggers
+[info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.
+[debug] [2018-11-17T17:02:44.124Z] ----------------------------------------------------------------------
+[debug] [2018-11-17T17:02:44.155Z] Command:       C:\Users\felip\React\node.exe C:\Users\felip\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2018-11-17T17:02:44.155Z] CLI Version:   6.0.1
+[debug] [2018-11-17T17:02:44.155Z] Platform:      win32
+[debug] [2018-11-17T17:02:44.155Z] Node Version:  v8.12.0
+[debug] [2018-11-17T17:02:44.176Z] Time:          Sat Nov 17 2018 18:02:44 GMT+0100 (Mitteleuropäische Zeit)
+[debug] [2018-11-17T17:02:44.176Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-17T17:02:44.381Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-17T17:02:44.381Z] > authorizing via signed-in user
+[debug] [2018-11-17T17:02:44.381Z] [iam] checking project cmspeqas for permissions ["firebase.projects.get"]
+[debug] [2018-11-17T17:02:44.381Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-11-17T17:02:44.381Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-11-17T17:02:44.816Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-17T17:02:44.910Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/cmspeqas:testIamPermissions  
 
-[debug] [2018-11-16T11:54:29.091Z] <<< HTTP RESPONSE 200
-[info] +  storage: rules file storage.rules compiled successfully
-[info] i  firestore: checking firestore.rules for compilation errors...
-[debug] [2018-11-16T11:54:29.125Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/cmspeqas:test  
+[debug] [2018-11-17T17:02:45.785Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-17T17:02:45.785Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/cmspeqas  
+ 
+[debug] [2018-11-17T17:02:46.597Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\felip\Desktop\CMS'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-11-17T17:03:14.255Z] Fetching environment
+[debug] [2018-11-17T17:03:14.271Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/96652663583:getServerAppConfig  
+ 
+[debug] [2018-11-17T17:03:14.271Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/96652663583/clients/_:getWebAppConfig  
+ 
+[debug] [2018-11-17T17:03:14.614Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-17T17:03:14.614Z] Starting @google-cloud/functions-emulator
+[debug] [2018-11-17T17:03:14.833Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2018-11-17T17:03:24.582Z] Parsing function triggers
+[info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.
+[debug] [2018-11-19T10:22:20.973Z] ----------------------------------------------------------------------
+[debug] [2018-11-19T10:22:21.017Z] Command:       C:\Users\felip\React\node.exe C:\Users\felip\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2018-11-19T10:22:21.017Z] CLI Version:   6.0.1
+[debug] [2018-11-19T10:22:21.017Z] Platform:      win32
+[debug] [2018-11-19T10:22:21.017Z] Node Version:  v8.12.0
+[debug] [2018-11-19T10:22:21.021Z] Time:          Mon Nov 19 2018 11:22:21 GMT+0100 (Mitteleuropäische Zeit)
+[debug] [2018-11-19T10:22:21.021Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-19T10:22:21.277Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-19T10:22:21.277Z] > authorizing via signed-in user
+[debug] [2018-11-19T10:22:21.281Z] [iam] checking project cmspeqas for permissions ["firebase.projects.get"]
+[debug] [2018-11-19T10:22:21.285Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-11-19T10:22:21.285Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-11-19T10:22:21.633Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-19T10:22:21.673Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/cmspeqas:testIamPermissions  
 
-[debug] [2018-11-16T11:54:29.869Z] <<< HTTP RESPONSE 200
-[info] +  firestore: rules file firestore.rules compiled successfully
-[debug] [2018-11-16T11:54:29.884Z] > [functions] package.json contents: {
-  "name": "functions",
-  "scripts": {
-    "lint": "tslint --project tsconfig.json",
-    "build": "tsc",
-    "serve": "npm run build && firebase serve --only functions",
-    "shell": "npm run build && firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
-  },
-  "main": "lib/index.js",
-  "dependencies": {
-    "firebase-admin": "~6.0.0",
-    "firebase-functions": "^2.1.0"
-  },
-  "devDependencies": {
-    "tslint": "~5.8.0",
-    "typescript": "~2.8.3"
-  },
-  "private": true
-}
-[info] i  functions: ensuring necessary APIs are enabled...
-[debug] [2018-11-16T11:54:29.884Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/cmspeqas?view=CONSUMER_VIEW  
+[debug] [2018-11-19T10:22:22.538Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-19T10:22:22.542Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/cmspeqas  
  
-[debug] [2018-11-16T11:54:29.884Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/cmspeqas?view=CONSUMER_VIEW  
+[debug] [2018-11-19T10:22:23.352Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\felip\Desktop\CMS'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-11-19T10:22:49.503Z] Fetching environment
+[debug] [2018-11-19T10:22:49.534Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/96652663583:getServerAppConfig  
  
-[debug] [2018-11-16T11:54:31.218Z] <<< HTTP RESPONSE 200
-[debug] [2018-11-16T11:54:31.296Z] <<< HTTP RESPONSE 200
-[info] +  functions: all necessary APIs are enabled
-[debug] [2018-11-16T11:54:31.296Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/cmspeqas  
+[debug] [2018-11-19T10:22:49.534Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/96652663583/clients/_:getWebAppConfig  
  
-[debug] [2018-11-16T11:54:32.108Z] <<< HTTP RESPONSE 200
-[debug] [2018-11-16T11:54:32.109Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/96652663583:getServerAppConfig  
- 
-[debug] [2018-11-16T11:54:32.322Z] <<< HTTP RESPONSE 200
-[debug] [2018-11-16T11:54:32.322Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/cmspeqas/versions  
-
-[debug] [2018-11-16T11:54:33.747Z] <<< HTTP RESPONSE 200
-[info] i  storage: uploading rules storage.rules...
-[debug] [2018-11-16T11:54:33.747Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/cmspeqas/rulesets  
-
-[debug] [2018-11-16T11:54:34.678Z] <<< HTTP RESPONSE 200
-[debug] [2018-11-16T11:54:34.678Z] [rules] created ruleset projects/cmspeqas/rulesets/c0f710a0-202c-4590-b5b6-477e81ba6567
-[info] i  firestore: uploading rules firestore.rules...
-[debug] [2018-11-16T11:54:34.678Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/cmspeqas/rulesets  
-
-[debug] [2018-11-16T11:54:34.693Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta1/projects/cmspeqas/databases/(default)/indexes  
- 
-[debug] [2018-11-16T11:54:35.037Z] <<< HTTP RESPONSE 200
-[debug] [2018-11-16T11:54:35.594Z] <<< HTTP RESPONSE 200
-[debug] [2018-11-16T11:54:35.594Z] [rules] created ruleset projects/cmspeqas/rulesets/35be597d-30ca-4b49-9343-d235e0ccb8c2
-[info] i  functions: preparing functions directory for uploading...
-[debug] [2018-11-16T11:54:35.594Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/cmspeqas/configs  
- 
-[debug] [2018-11-16T11:54:36.749Z] <<< HTTP RESPONSE 200
-[info] i  hosting[cmspeqas]: beginning deploy...
+[debug] [2018-11-19T10:22:49.847Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-19T10:22:49.847Z] Starting @google-cloud/functions-emulator
+[debug] [2018-11-19T10:22:50.112Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2018-11-19T10:23:01.910Z] Parsing function triggers
+[info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.

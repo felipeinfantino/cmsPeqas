@@ -61,10 +61,10 @@
 							  <label for="email">Email address</label>
 							  <input type="text" class="form-control" id="email" placeholder="Email" required>
 							  <div class="invalid-feedback" style="display: none" id="email_feedback">
-								Please provide a valid city. 
+								User not found. Please contact peqas.
 							  </div>
 							  <br><br>
-							 <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" onclick="authenticate()">Sign in</button>
+							 <button type="submit" id="signIn" class="btn btn-success btn-flat m-b-30 m-t-30" onclick="authenticate()">Sign in</button>
 							</div>
 			    
                    
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script> 
 <script>
   // Initialize Firebase
   var config = {

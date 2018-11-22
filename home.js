@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
 	arwork_label.innerHTML = artworks;
 	name_label.innerHTML = name;
 	
-	if(user.email == "finfantino@peqas.com"){
+	if(user.email == "finfantino@peqas.com" || user.email == "dennis@peqas.com" ){
 		document.getElementById("admin").style.display = '';
 	}
 	
@@ -47,6 +47,20 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
 //TODO later anhand der type den HTML Content zu bestimmen
 async function fillInitialInfo(email_content){
+	//Update Initial data artist and arworrks
+	//TODO nicht hardgecoded
+	var artistAndArwork = await firebase.firestore().collection("user").doc("galerie").collection("kunstwerk").where('galerie_id', '==', email_content).get().then((snapshot) => {
+		var arworks = snapshot.docs.length;
+		var artistsAsList = [];
+		for(var i =0 ; i < arworks; i++){
+			var data = snapshot.docs[i].data();
+			artistsAsList.push(data["Artist"]);
+		}
+		var artistSet = new Set(artistsAsList);
+		return [artistSet.size ,arworks];
+	});;
+
+	console.log(artistAndArwork);
 	var ref = firebase.firestore().collection("users_ids");
 	var user = await ref.where('email', '==', email_content).get().then((snapshot) => {
 		var data = snapshot.docs[0].data();
@@ -56,6 +70,15 @@ async function fillInitialInfo(email_content){
 		var arworks = initial_data['artworks'];
 		return [artist,arworks, name];
 	});
+
+	if(artistAndArwork[0] == null){
+		artistAndArwork[0] = 0;
+	}
+	if(artistAndArwork[1] == null){
+		artistAndArwork[1] = 0;
+	}
+	user[0] = artistAndArwork[0];
+	user[1] = artistAndArwork[1];
 	return user;	
 }
 
